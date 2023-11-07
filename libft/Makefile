@@ -6,15 +6,15 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 16:37:53 by mkane             #+#    #+#              #
-#    Updated: 2023/11/07 18:23:04 by mkane            ###   ########.fr        #
+#    Updated: 2023/11/07 20:26:59 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# NAME = a.out
+NAME = a.out
 
-NAME = libft.a
+# NAME = libft.a
 
-SRC = ft_isalpha.c main.c 
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c main.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -26,11 +26,11 @@ HEADERS = libft.h
 
 all: $(NAME)
 
-# $(NAME): $(OBJ)
-# 	$(CC) $(CFLAGS) -include$(HEADERS) -o $(NAME) $(OBJ)
-
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -include$(HEADERS) -o $(NAME) $(OBJ)
+
+# $(NAME): $(OBJ)
+# 	ar rcs $(NAME) $(OBJ)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -include$(HEADERS) -o $@ -c $<

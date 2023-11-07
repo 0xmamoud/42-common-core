@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:12:28 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/07 17:48:01 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/07 20:19:56 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,6 @@
 # define LIBFT_H
 
 int	ft_isalpha(int c);
+int	ft_isdigit(int c);
+int ft_isalnum(int c);
 #endif
