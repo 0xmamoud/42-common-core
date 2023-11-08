@@ -6,27 +6,14 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:59:39 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/07 20:29:27 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/08 14:19:59 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- int	_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (2048);
-	return (0);
-}
-
- int	_isalpha(int c)
-{
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1024);
-	return (0);
-}
-
 int ft_isalnum(int c)
 {
-	if (_isdigit(c) || _isdigit(c))
-		return (8);
+	if ((c >= '0' && c <= '9')||
+		(c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') )
+		return (1);
 	return (0);
 }
