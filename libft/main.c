@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/08 14:31:07 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/08 15:09:30 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,35 @@ int main()
 	// 	i++;
 	// }
 
-	// test
+	// testisascii
+	// while (i < 256)
+	// {
+
+	// 	int my_function = ft_isascii(i);
+	// 	int true_function = isascii(i);
+	// 	printf("%d\n", my_function);
+	// 	printf("%d\n", true_function);
+	// 	printf("==============================\n");
+	// 	i++;
+	// }
+
+	// testisprint
+	// while (i < 256)
+	// {
+
+	// 	int my_function = ft_isprint(i);
+	// 	int true_function = isprint(i);
+	// 	printf("%d\n", my_function);
+	// 	printf("%d\n", true_function);
+	// 	printf("==============================\n");
+	// 	i++;
+	// }
+
 	while (i < 256)
 	{
 
-		int my_function = ft_isascii(i);
-		int true_function = isascii(i);
+		int my_function = ft_isprint(i);
+		int true_function = isprint(i);
 		printf("%d\n", my_function);
 		printf("%d\n", true_function);
 		printf("==============================\n");
