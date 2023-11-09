@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/08 20:16:15 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/09 23:43:10 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int main()
 	// testisalpha
 	// while (i < 256)
 	// {
-
 	// 	int my_function = ft_isalpha(i);
 	// 	int true_function = isalpha(i);
 	// 	printf("%d\n", my_function);
@@ -45,7 +44,6 @@ int main()
 	// testisalnum
 	// while (i < 256)
 	// {
-
 	// 	int my_function = ft_isalnum(i);
 	// 	int true_function = isalnum(i);
 	// 	printf("%d\n", my_function);
@@ -57,7 +55,6 @@ int main()
 	// testisascii
 	// while (i < 256)
 	// {
-
 	// 	int my_function = ft_isascii(i);
 	// 	int true_function = isascii(i);
 	// 	printf("%d\n", my_function);
@@ -69,7 +66,6 @@ int main()
 	// testisprint
 	// while (i < 256)
 	// {
-
 	// 	int my_function = ft_isprint(i);
 	// 	int true_function = isprint(i);
 	// 	printf("%d\n", my_function);
@@ -79,16 +75,16 @@ int main()
 	// }
 
 	// teststrlen
-	// printf("%d\n", ft_strlen("salut"));
+	// printf("%lu\n", ft_strlen("salut"));
 	// printf("%lu\n", strlen("salut"));
 	// printf("==============================\n");
-	// printf("%d\n", ft_strlen("ca va "));
+	// printf("%ld\n", ft_strlen("ca va "));
 	// printf("%lu\n", strlen("ca va "));
 	// printf("==============================\n");
-	// printf("%d\n", ft_strlen("42 est top"));
+	// printf("%ld\n", ft_strlen("42 est top"));
 	// printf("%lu\n", strlen("42 est top"));
 	// printf("==============================\n");
-	// printf("%d\n", ft_strlen("hello world"));
+	// printf("%ld\n", ft_strlen("hello world"));
 	// printf("%lu\n", strlen("hello world"));
 	// printf("==============================\n");
 
@@ -96,67 +92,130 @@ int main()
 	// int array1 [] = { 54, 85, 20, 63, 21 };
 	// int array2 [] = { 54, 85, 20, 63, 21 };
     // size_t size = sizeof( int ) * 10;
-	
 	// ft_memset( array1, 0, size );
     // memset( array2, 0, size );
-
 	// for( int length=0; length<5; length++) {
     //     printf( "%d ", array1[ length ] );
     // }
     // printf( "\n==========================\n" );
-
     // for( int length=0; length<5; length++) {
     //     printf( "%d ", array2[ length ] );
     // }
     // printf( "\n" );
-
 	// int array3 [] = { -54, -85, 20, 63, 21 };
 	// int array4 [] = { -54, -85, 20, 63, 21 };
-	
 	// ft_memset( array3, 0, size );
     // memset( array4, 0, size );
-
 	// for( int length=0; length<5; length++) {
     //     printf( "%d ", array3[ length ] );
     // }
     // printf( "\n==========================\n" );
-
     // for( int length=0; length<5; length++) {
     //     printf( "%d ", array4[ length ] );
     // }
     // printf( "\n" );
 
 	// testbzero
-	int array1 [] = { 54, 85, 20, 63, 21 };
-	int array2 [] = { 54, 85, 20, 63, 21 };
-    size_t size = sizeof( int ) * 10;
+	// int array1 [] = { 54, 85, 20, 63, 21 };
+	// int array2 [] = { 54, 85, 20, 63, 21 };
+  //   size_t size = sizeof( int ) * 5;
+	// ft_bzero( array1,size );
+  //   bzero( array2, size );
+	// for( int length=0; length<5; length++) {
+  //       printf( "%d ", array1[ length ] );
+  //   }
+  //   printf( "\n==========================\n" );
+  //   for( int length=0; length<5; length++) {
+  //       printf( "%d ", array2[ length ] );
+  //   }
+  //   printf( "\n" );
+	// int array3 [] = { -54, -85, 20, 63, 21 };
+	// int array4 [] = { -54, -85, 20, 63, 21 };
+	// ft_bzero( array3, size );
+  //   bzero( array4, size );
+	// for( int length=0; length<5; length++) {
+  //       printf( "%d ", array3[ length ] );
+  //   }
+  //   printf( "\n==========================\n" );
+  //   for( int length=0; length<5; length++) {
+  //       printf( "%d ", array4[ length ] );
+  //   }
+  //   printf( "\n" );
+
+	// testmemcpy
+	// const char *src1 = "hello world";
+	// const char *src2 = "hello world";
+	// const char *src3 = "ici la terre";
+	// const char *src4 = "ici la terre";
+	// size_t n = 10;
+	// char dest1[n];
+	// char dest2[n];
+	// char dest3[n];
+	// char dest4[n];
+	// ft_memcpy(dest1, src1, n);
+	// memcpy(dest2, src2, n);
+	// ft_memcpy(dest3, src3, n);
+	// memcpy(dest4, src4, n);
+	// size_t j = 0;
+	// while (j < n)
+	// {
+	// 	printf("%ld\n", *dest1 + j);
+	// 	printf("%ld\n", *dest2 + j);
+	// 	printf("================================================\n");
+	// 	printf("%ld\n", *dest3 + j);
+	// 	printf("%ld\n", *dest4 + j);
+	// 	printf("================================================\n");
+	// 	j++;
+	// }
 	
-	ft_bzero( array1,size );
-    bzero( array2, size );
+	// testmemmove
+	// const char *src1 = "hello world";
+	// const char *src2 = "hello world";
+	// const char *src3 = "ici la terre";
+	// const char *src4 = "ici la terre";
+	// size_t n = 20;
+	// char dest1[n];
+	// char dest2[n];
+	// char dest3[n];
+	// char dest4[n];
+	// ft_memmove(dest1, src1, n);
+	// memmove(dest2, src2, n);
+	// ft_memmove(dest3, src3, n);
+	// memmove(dest4, src4, n);
+	// size_t j = 0;
+	// while (j < n)
+	// {
+	// 	printf("%ld\n", *dest1 + j);
+	// 	printf("%ld\n", *dest2 + j);
+	// 	printf("================================================\n");
+	// 	printf("%ld\n", *dest3 + j);
+	// 	printf("%ld\n", *dest4 + j);
+	// 	printf("================================================\n");
+	// 	j++;
+	// }
 
-	for( int length=0; length<5; length++) {
-        printf( "%d ", array1[ length ] );
-    }
-    printf( "\n==========================\n" );
+	// teststrlcpy
+	// char src1[] = "Hello, World!";
+    // char src2[] = "This is a test.";
+    // char src3[] = "12345678901234567890";
+    // char dst_ft1[20];
+    // char dst_ft2[20];
+    // char dst_ft3[20];
+    // size_t result_ft1 = ft_strlcpy(dst_ft1, src1, sizeof(dst_ft1));
+    // printf("ft_strlcpy Result for src1: %zu, dst: %s\n", result_ft1, dst_ft1);
+    // size_t result_ft2 = ft_strlcpy(dst_ft2, src2, sizeof(dst_ft2));
+    // printf("ft_strlcpy Result for src2: %zu, dst: %s\n", result_ft2, dst_ft2);
+    // size_t result_ft3 = ft_strlcpy(dst_ft3, src3, sizeof(dst_ft3));
+    // printf("ft_strlcpy Result for src3: %zu, dst: %s\n", result_ft3, dst_ft3);
 
-    for( int length=0; length<5; length++) {
-        printf( "%d ", array2[ length ] );
-    }
-    printf( "\n" );
-
-	int array3 [] = { -54, -85, 20, 63, 21 };
-	int array4 [] = { -54, -85, 20, 63, 21 };
-	
-	ft_bzero( array3, size );
-    bzero( array4, size );
-
-	for( int length=0; length<5; length++) {
-        printf( "%d ", array3[ length ] );
-    }
-    printf( "\n==========================\n" );
-
-    for( int length=0; length<5; length++) {
-        printf( "%d ", array4[ length ] );
-    }
-    printf( "\n" );
+	const char *src1 = "wolrdhello ";
+	const char *src2 = "salut ça va ?";
+	char dest1[25] = "hello";
+	char dest2[25] = "bien ?";
+	ft_strlcat(dest1, src1, 25);
+	printf("%ld\n", ft_strlcat(dest1, src1, 25));
+	printf("%s\n", dest1);
+	ft_strlcat(dest2, src2, 25);
+	printf("%ld\n", ft_strlcat(dest2, src2, 25));
+	printf("%s\n", dest2);
 }
