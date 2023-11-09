@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kane <kane@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/07 16:37:53 by mkane             #+#    #+#              #
-#    Updated: 2023/11/09 23:32:02 by kane             ###   ########.fr        #
+#    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
+#    Updated: 2023/11/10 00:12:49 by kane             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,15 @@ SRC = ft_isalpha.c\
 	ft_memmove.c\
 	ft_strlcpy.c\
 	ft_strlcat.c\
+	ft_toupper.c\
+	ft_tolower.c\
 	main.c\
 
 OBJ = $(SRC:.c=.o)
 
-CC = gcc
+CC = cc
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 
 HEADERS = libft.h
 
@@ -45,7 +47,7 @@ $(NAME): $(OBJ)
 # 	ar rcs $(NAME) $(OBJ)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -include$(HEADERS) -o $@ -c $< 
+	$(CC) $(CFLAGS) -include$(HEADERS) -o $@ -c $<
 
 clean:
 	-rm -f $(OBJ)

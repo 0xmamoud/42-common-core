@@ -6,7 +6,7 @@
 /*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/09 23:43:10 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/10 00:12:33 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,14 +208,47 @@ int main()
     // size_t result_ft3 = ft_strlcpy(dst_ft3, src3, sizeof(dst_ft3));
     // printf("ft_strlcpy Result for src3: %zu, dst: %s\n", result_ft3, dst_ft3);
 
-	const char *src1 = "wolrdhello ";
-	const char *src2 = "salut ça va ?";
-	char dest1[25] = "hello";
-	char dest2[25] = "bien ?";
-	ft_strlcat(dest1, src1, 25);
-	printf("%ld\n", ft_strlcat(dest1, src1, 25));
-	printf("%s\n", dest1);
-	ft_strlcat(dest2, src2, 25);
-	printf("%ld\n", ft_strlcat(dest2, src2, 25));
-	printf("%s\n", dest2);
+	// teststrlcat
+	// const char *src1 = "wolrdhello ";
+	// const char *src2 = "salut ça va ?";
+	// char dest1[25] = "hello";
+	// char dest2[25] = "bien ?";
+	// ft_strlcat(dest1, src1, 25);
+	// printf("%ld\n", ft_strlcat(dest1, src1, 25));
+	// printf("%s\n", dest1);
+	// ft_strlcat(dest2, src2, 25);
+	// printf("%ld\n", ft_strlcat(dest2, src2, 25));
+	// printf("%s\n", dest2);
+
+	// testtoupper
+	// char test_char_1 = 'a';
+    // printf("Test 1:\n");
+    // printf("ft_toupper: %c\n", ft_toupper(test_char_1));
+    // printf("toupper: %c\n", toupper(test_char_1));
+    // printf("\n");
+    // char test_char_2 = 'Z';
+    // printf("Test 2:\n");
+    // printf("ft_toupper: %c\n", ft_toupper(test_char_2));
+    // printf("toupper: %c\n", toupper(test_char_2));
+    // printf("\n");
+    // char test_char_3 = '$';
+    // printf("Test 3:\n");
+    // printf("ft_toupper: %c\n", ft_toupper(test_char_3));
+    // printf("toupper: %c\n", toupper(test_char_3));
+
+	// testtolower
+	char test_char_1 = 'A';
+    printf("Test 1:\n");
+    printf("ft_tolower: %c\n", ft_tolower(test_char_1));
+    printf("tolower: %c\n", tolower(test_char_1));
+    printf("\n");
+    char test_char_2 = 'z';
+    printf("Test 2:\n");
+    printf("ft_tolower: %c\n", ft_tolower(test_char_2));
+    printf("tolower: %c\n", tolower(test_char_2));
+    printf("\n");
+    char test_char_3 = '7';
+    printf("Test 3:\n");
+    printf("ft_tolower: %c\n", ft_tolower(test_char_3));
+    printf("tolower: %c\n", tolower(test_char_3));
 }
