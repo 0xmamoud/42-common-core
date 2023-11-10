@@ -6,7 +6,7 @@
 /*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/10 00:12:33 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/10 21:50:04 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,18 +237,216 @@ int main()
     // printf("toupper: %c\n", toupper(test_char_3));
 
 	// testtolower
-	char test_char_1 = 'A';
-    printf("Test 1:\n");
-    printf("ft_tolower: %c\n", ft_tolower(test_char_1));
-    printf("tolower: %c\n", tolower(test_char_1));
-    printf("\n");
-    char test_char_2 = 'z';
-    printf("Test 2:\n");
-    printf("ft_tolower: %c\n", ft_tolower(test_char_2));
-    printf("tolower: %c\n", tolower(test_char_2));
-    printf("\n");
-    char test_char_3 = '7';
-    printf("Test 3:\n");
-    printf("ft_tolower: %c\n", ft_tolower(test_char_3));
-    printf("tolower: %c\n", tolower(test_char_3));
+	// char test_char_1 = 'A';
+    // printf("Test 1:\n");
+    // printf("ft_tolower: %c\n", ft_tolower(test_char_1));
+    // printf("tolower: %c\n", tolower(test_char_1));
+    // printf("\n");
+    // char test_char_2 = 'z';
+    // printf("Test 2:\n");
+    // printf("ft_tolower: %c\n", ft_tolower(test_char_2));
+    // printf("tolower: %c\n", tolower(test_char_2));
+    // printf("\n");
+    // char test_char_3 = '7';
+    // printf("Test 3:\n");
+    // printf("ft_tolower: %c\n", ft_tolower(test_char_3));
+    // printf("tolower: %c\n", tolower(test_char_3));
+
+	// teststrchr
+	// const char *test_str_1 = "Hello, World!";
+    // int test_char_1 = 'o';
+    // printf("Test 1:\n");
+    // printf("ft_strchr: %s\n", ft_strchr(test_str_1, test_char_1));
+    // printf("strchr: %s\n", strchr(test_str_1, test_char_1));
+    // printf("\n");
+    // const char *test_str_2 = "Hello, World!";
+    // int test_char_2 = 'x';
+    // printf("Test 2:\n");
+    // printf("ft_strchr: %s\n", ft_strchr(test_str_2, test_char_2));
+    // printf("strchr: %s\n", strchr(test_str_2, test_char_2));
+    // printf("\n");
+    // const char *test_str_3 = "";
+    // int test_char_3 = 'A';
+    // printf("Test 3:\n");
+    // printf("ft_strchr: %s\n", ft_strchr(test_str_3, test_char_3));
+    // printf("strchr: %s\n", strchr(test_str_3, test_char_3));
+
+	// teststrrchar
+	// const char *test_str_1 = "Hello, World!";
+    // int test_char_1 = 'o';
+    // printf("Test 1:\n");
+    // printf("ft_strrchr: %s\n", ft_strrchr(test_str_1, test_char_1));
+    // printf("strrchr: %s\n", strrchr(test_str_1, test_char_1));
+    // printf("\n");
+    // const char *test_str_2 = "Hello, World!";
+    // int test_char_2 = 'x';
+    // printf("Test 2:\n");
+    // printf("ft_strrchr: %s\n", ft_strrchr(test_str_2, test_char_2));
+    // printf("strrchr: %s\n", strrchr(test_str_2, test_char_2));
+    // printf("\n");
+    // const char *test_str_3 = "";
+    // int test_char_3 = 'A';
+    // printf("Test 3:\n");
+    // printf("ft_strrchr: %s\n", ft_strrchr(test_str_3, test_char_3));
+    // printf("strrchr: %s\n", strrchr(test_str_3, test_char_3));
+
+	// teststrcmp
+	// const char *test_str_1a = "Hello";
+    // const char *test_str_1b = "Hello";
+    // size_t test_n_1 = 6;
+    // printf("Test 1:\n");
+    // printf("ft_strncmp: %d\n", ft_strncmp(test_str_1a, test_str_1b, test_n_1));
+    // printf("strncmp: %d\n", strncmp(test_str_1a, test_str_1b, test_n_1));
+    // printf("\n");
+    // const char *test_str_2a = "Hellb";
+    // const char *test_str_2b = "Hilla";
+    // size_t test_n_2 = 6;
+    // printf("Test 2:\n");
+    // printf("ft_strncmp: %d\n", ft_strncmp(test_str_2a, test_str_2b, test_n_2));
+    // printf("strncmp: %d\n", strncmp(test_str_2a, test_str_2b, test_n_2));
+    // printf("\n");
+    // const char *test_str_3a = "Mello";
+    // const char *test_str_3b = "Hills";
+    // size_t test_n_3 = 6;
+    // printf("Test 3:\n");
+    // printf("ft_strncmp: %d\n", ft_strncmp(test_str_3a, test_str_3b, test_n_3));
+    // printf("strncmp: %d\n", strncmp(test_str_3a, test_str_3b, test_n_3));
+
+	// testmemchr
+	// const char *test_str_1 = "Hello, World!";
+    // int test_char_1 = 'o';
+    // size_t test_n_1 = 13;
+    // printf("Test 1:\n");
+    // printf("ft_memchr: %p\n", ft_memchr(test_str_1, test_char_1, test_n_1));
+    // printf("memchr: %p\n", memchr(test_str_1, test_char_1, test_n_1));
+    // printf("\n");
+    // const char *test_str_2 = "Hello, World!";
+    // int test_char_2 = 'x';
+    // size_t test_n_2 = 13;
+    // printf("Test 2:\n");
+    // printf("ft_memchr: %p\n", ft_memchr(test_str_2, test_char_2, test_n_2));
+    // printf("memchr: %p\n", memchr(test_str_2, test_char_2, test_n_2));
+    // printf("\n");
+    // const char *test_str_3 = "Hello";
+    // int test_char_3 = 'o';
+    // size_t test_n_3 = 10;
+    // printf("Test 3:\n");
+    // printf("ft_memchr: %p\n", ft_memchr(test_str_3, test_char_3, test_n_3));
+    // printf("memchr: %p\n", memchr(test_str_3, test_char_3, test_n_3));
+
+	// testmemcmp
+	// char test_str_1a[] = "Hello";
+    // char test_str_1b[] = "Hello";
+    // size_t test_n_1 = 5;
+    // printf("Test 1:\n");
+    // printf("ft_memcmp: %d\n", ft_memcmp(test_str_1a, test_str_1b, test_n_1));
+    // printf("memcmp: %d\n", memcmp(test_str_1a, test_str_1b, test_n_1));
+    // printf("\n");
+    // char test_str_2a[] = "ABCDEF";
+    // char test_str_2b[] = "ABZDEF";
+    // size_t test_n_2 = 6;
+    // printf("Test 2:\n");
+    // printf("ft_memcmp: %d\n", ft_memcmp(test_str_2a, test_str_2b, test_n_2));
+    // printf("memcmp: %d\n", memcmp(test_str_2a, test_str_2b, test_n_2));
+    // printf("\n");
+    // char test_str_3a[] = "Hello";
+    // char test_str_3b[] = "H\0llo";
+    // size_t test_n_3 = 5;
+    // printf("Test 3:\n");
+    // printf("ft_memcmp: %d\n", ft_memcmp(test_str_3a, test_str_3b, test_n_3));
+    // printf("memcmp: %d\n", memcmp(test_str_3a, test_str_3b, test_n_3));
+
+	
+	// teststrnstr
+	// const char *test_str_1_big = "Hello, World!";
+    // const char *test_str_1_little = "World";
+    // size_t test_n_1 = 13;
+    // printf("Test 1:\n");
+    // printf("ft_strnstr: %s\n", ft_strnstr(test_str_1_big, test_str_1_little, test_n_1));
+    // printf("\n");
+    // const char *test_str_2_big = "Hello, World!";
+    // const char *test_str_2_little = "Universe";
+    // size_t test_n_2 = 13;
+    // printf("Test 2:\n");
+    // printf("ft_strnstr: %s\n", ft_strnstr(test_str_2_big, test_str_2_little, test_n_2));
+    // printf("\n");
+    // const char *test_str_3_big = "Hello, World!";
+    // const char *test_str_3_little = "World";
+    // size_t test_n_3 = 10;
+    // printf("Test 3:\n");
+    // printf("ft_strnstr: %s\n", ft_strnstr(test_str_3_big, test_str_3_little, test_n_3));
+	
+	// testatoi
+	// const char *test_str_1 = "12345";
+    // printf("Test 1:\n");
+    // printf("ft_atoi: %d\n", ft_atoi(test_str_1));
+    // printf("atoi: %d\n", atoi(test_str_1));
+    // printf("\n");
+    // const char *test_str_2 = "-2147483648";
+    // printf("Test 2:\n");
+    // printf("ft_atoi: %d\n", ft_atoi(test_str_2));
+    // printf("atoi: %d\n", atoi(test_str_2));
+    // printf("\n");
+    // const char *test_str_3 = "   -987  ";
+    // printf("Test 3:\n");
+    // printf("ft_atoi: %d\n", ft_atoi(test_str_3));
+    // printf("atoi: %d\n", atoi(test_str_3));
+
+	// testcalloc
+	// size_t test_1_nmemb = 5;
+    // size_t test_1_size = sizeof(int);
+    // printf("Test 1:\n");
+    // int *arr_1_ft = (int *)ft_calloc(test_1_nmemb, test_1_size);
+    // int *arr_1_std = (int *)calloc(test_1_nmemb, test_1_size);
+    // for (size_t i = 0; i < test_1_nmemb; ++i)
+    // {
+    //     printf("ft_calloc[%zu] = %d\n", i, arr_1_ft[i]);
+    //     printf("calloc[%zu] = %d\n", i, arr_1_std[i]);
+    // }
+    // free(arr_1_ft);
+    // free(arr_1_std);
+    // printf("\n");
+    // size_t test_2_nmemb = 3;
+    // size_t test_2_size = sizeof(double);
+    // printf("Test 2:\n");
+    // double *arr_2_ft = (double *)ft_calloc(test_2_nmemb, test_2_size);
+    // double *arr_2_std = (double *)calloc(test_2_nmemb, test_2_size);
+    // for (size_t i = 0; i < test_2_nmemb; ++i)
+    // {
+    //     printf("ft_calloc[%zu] = %f\n", i, arr_2_ft[i]);
+    //     printf("calloc[%zu] = %f\n", i, arr_2_std[i]);
+    // }
+    // free(arr_2_ft);
+    // free(arr_2_std);
+
+	// teststrdup
+	// const char *test_str_1 = "Hello, World!";
+    // printf("Test 1:\n");
+    // char *result_1_ft = ft_strdup(test_str_1);
+    // char *result_1_std = strdup(test_str_1);
+    // printf("ft_strdup: %s\n", result_1_ft);
+    // printf("strdup: %s\n", result_1_std);
+    // free(result_1_ft);
+    // free(result_1_std);
+    // printf("\n");
+    // const char *test_str_2 = "";
+    // printf("Test 2:\n");
+    // char *result_2_ft = ft_strdup(test_str_2);
+    // char *result_2_std = strdup(test_str_2);
+    // printf("ft_strdup: %s\n", result_2_ft);
+    // printf("strdup: %s\n", result_2_std);
+    // free(result_2_ft);
+    // free(result_2_std);
+    // printf("\n");
+    // const char *test_str_3 = NULL;
+    // printf("Test 3:\n");
+    // char *result_3_ft = ft_strdup(test_str_3);
+    // char *result_3_std = strdup(test_str_3);
+    // printf("strdup: %p\n", (void *)result_3_std);
+    // printf("ft_strdup: %p\n", (void *)result_3_ft);
+    // free(result_3_ft);
+    // free(result_3_std);
+
+	
 }
+

@@ -6,7 +6,7 @@
 #    By: kane <kane@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
-#    Updated: 2023/11/10 00:12:49 by kane             ###   ########.fr        #
+#    Updated: 2023/11/10 21:47:14 by kane             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,15 @@ SRC = ft_isalpha.c\
 	ft_strlcat.c\
 	ft_toupper.c\
 	ft_tolower.c\
+	ft_strchr.c\
+	ft_strrchr.c\
+	ft_strncmp.c\
+	ft_memchr.c\
+	ft_memcmp.c\
+	ft_strnstr.c\
+	ft_atoi.c\
+	ft_calloc.c\
+	ft_strdup.c\
 	main.c\
 
 OBJ = $(SRC:.c=.o)

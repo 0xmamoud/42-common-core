@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 20:08:03 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/10 21:04:18 by kane             ###   ########.fr       */
+/*   Created: 2023/11/10 19:18:28 by kane              #+#    #+#             */
+/*   Updated: 2023/11/10 20:00:26 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	unsigned char	*str;
+	int	sign;
+	int	char_to_int;
 
-	str = s;
-	while (n > 0)
+	sign = 1;
+	char_to_int = 0;
+	while ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+    {
+        if (*nptr == '-')
+			sign = -1;
+        nptr++;
+    }
+	while ((*nptr >= '0' && *nptr <= '9'))
 	{
-		*str = 0;
-		str++;
-		n--;
+		char_to_int = (char_to_int * 10) + (*nptr - '0');
+		nptr++;
 	}
+	return (sign * char_to_int);
 }
