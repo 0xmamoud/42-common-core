@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kane <kane@student.42.fr>                  +#+  +:+       +#+         #
+#    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
-#    Updated: 2023/11/10 21:47:14 by kane             ###   ########.fr        #
+#    Updated: 2023/11/13 18:38:34 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+EXEC = a.out
 
-# NAME = libft.a
+NAME = libft.a
 
 SRC = ft_isalpha.c\
 	ft_isdigit.c\
@@ -47,13 +47,15 @@ CFLAGS = -Wall -Wextra -Werror
 
 HEADERS = libft.h
 
+exe: ${EXEC}
+
+$(EXEC): $(OBJ)
+	$(CC) $(CFLAGS) -include$(HEADERS) -o $(EXEC) $(OBJ)
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -include$(HEADERS) -o $(NAME) $(OBJ)
-
-# $(NAME): $(OBJ)
-# 	ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -include$(HEADERS) -o $@ -c $<
@@ -62,6 +64,10 @@ clean:
 	-rm -f $(OBJ)
 
 fclean: clean
-	-rm -f $(NAME)
+	-rm -f $(NAME) ${EXEC}
 
 re: fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)

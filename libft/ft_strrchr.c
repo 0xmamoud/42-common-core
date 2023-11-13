@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:39:16 by kane              #+#    #+#             */
-/*   Updated: 2023/11/10 11:51:30 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/13 16:26:49 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*acc;
-	
+
 	acc = NULL;
 	while (*s)
 	{
@@ -23,5 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 			acc = (char *)s;
 		s++;
 	}
+	if (!c)
+		return ((char *) s);
 	return (acc);
 }

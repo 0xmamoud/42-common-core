@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:41:04 by kane              #+#    #+#             */
-/*   Updated: 2023/11/09 22:47:55 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/13 13:34:09 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	srclen;
 	size_t	i;
 
+	srclen = ft_strlen(src);
 	while (*(src + srclen))
 		srclen++;
 	i = 0;
