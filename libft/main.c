@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/10 21:50:04 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/13 20:58:06 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -447,6 +447,25 @@ int main()
     // free(result_3_ft);
     // free(result_3_std);
 
-	
+	// testsubstr
+    // const char *s1 = "hello world ca va";
+    // const char *s2 = "";
+    // char *d1 = ft_substr(s1, 0, 7);
+    // char *d2 = ft_substr(s1, 2, 8);
+    // char *d3 = ft_substr(s1, 3, 20);
+    // char *d4 = ft_substr(s2, 0, 0);
+    // char *d5 = ft_substr(s2, 0, 5);
+    // printf("%s\n", d1);
+    // printf("=================================\n");
+    // printf("%s\n", d2);
+    // printf("=================================\n");
+    //  printf("%s\n", d3);
+    // printf("=================================\n");
+    //  printf("%s\n", d4);
+    // printf("=================================\n");
+    //  printf("%s\n", d5);
+    // printf("=================================\n");
+
+    
 }
 

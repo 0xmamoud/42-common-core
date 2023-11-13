@@ -6,7 +6,7 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
-#    Updated: 2023/11/13 18:38:34 by mkane            ###   ########.fr        #
+#    Updated: 2023/11/13 22:06:52 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC = ft_isalpha.c\
 	ft_atoi.c\
 	ft_calloc.c\
 	ft_strdup.c\
+	ft_substr.c\
 	main.c\
 
 OBJ = $(SRC:.c=.o)
@@ -47,15 +48,15 @@ CFLAGS = -Wall -Wextra -Werror
 
 HEADERS = libft.h
 
-exe: ${EXEC}
-
-$(EXEC): $(OBJ)
-	$(CC) $(CFLAGS) -include$(HEADERS) -o $(EXEC) $(OBJ)
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
+
+exe: ${EXEC}
+
+$(EXEC): $(OBJ)
+	$(CC) $(CFLAGS) -include$(HEADERS) -o $(EXEC) $(OBJ)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -include$(HEADERS) -o $@ -c $<
