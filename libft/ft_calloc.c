@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:33:33 by kane              #+#    #+#             */
-/*   Updated: 2023/11/13 17:59:30 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/14 15:42:23 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*alloc;
 
+	if ((int)(nmemb * size) < 0 || ((int)size < 0 && (int)nmemb < 0))
+		return (NULL);
 	alloc = NULL;
 	alloc = malloc(nmemb * size);
 	if (!alloc)

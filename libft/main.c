@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/13 20:58:06 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/14 12:48:52 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -466,6 +466,11 @@ int main()
     //  printf("%s\n", d5);
     // printf("=================================\n");
 
-    
+    // teststrjoin
+    char *s1 = "my favorite animal is";
+	char *s2 = " ";
+	char *s3 = "the nyancat";
+	char *res = ft_strjoin(ft_strjoin(s1, s2), s3);
+    printf("%s", res);
 }
 

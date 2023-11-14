@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 10:56:20 by kane              #+#    #+#             */
-/*   Updated: 2023/11/14 14:01:49 by mkane            ###   ########.fr       */
+/*   Created: 2023/11/13 22:10:09 by mkane             #+#    #+#             */
+/*   Updated: 2023/11/14 14:58:58 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	while (*s != (const char)c)
+	size_t	lens1;
+	size_t	lens2;
+	char	*str;
+
+	str = NULL;
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	str = (char *) ft_calloc((lens1 + lens2 + 1), sizeof(char));
+	if (!str)
+		return (NULL);
+	if (!s1 && !s2)
 	{
-		if (!*s)
-			return (NULL);
-		s++;
+		*str = '\0';
+		return (str);
 	}
-	return ((char *) s);
+	ft_strlcpy(str, s1, lens1 + 1);
+	ft_strlcat(str, s2, (lens1 + lens2 + 1));
+	return (str);
 }

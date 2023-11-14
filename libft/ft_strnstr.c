@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:09:40 by kane              #+#    #+#             */
-/*   Updated: 2023/11/13 17:55:15 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/14 14:55:44 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (!(*little) || !len)
+	if (len == 0 && *little)
+		return (NULL);
+	if (!(*little))
 		return ((char *)big);
 	while (*(big + i) && i < len)
 	{
