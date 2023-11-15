@@ -6,12 +6,11 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:50:53 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/15 17:54:12 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/15 18:15:08 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	countword(const char *s, char set)
 {

@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/15 16:53:22 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/15 20:18:56 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -498,20 +498,20 @@ int main()
     // free(result3);
 
     // testsplit
-    char const *test_str = "  tripouille  42 ";
-    char **result = ft_split(test_str, ' ');
-    if (!result)
-    {
-        printf("Memory allocation error\n");
-        return 1;
-    }
-    // Print the result
-    for (size_t i = 0; result[i] != NULL; i++)
-    {
-        printf("Word %zu:%s\n", i + 1, result[i]);
-        // free(result[i]); // Don't forget to free each string
-    }
-    free(result); // Don't forget to free the array itself
+    // char const *test_str = "  tripouille  42 ";
+    // char **result = ft_split(test_str, ' ');
+    // if (!result)
+    // {
+    //     printf("Memory allocation error\n");
+    //     return 1;
+    // }
+    // for (size_t i = 0; result[i] != NULL; i++)
+    // {
+    //     printf("Word %zu:%s\n", i + 1, result[i]);
+    // }
+    // free(result);
 
+    // testitoa
+    printf("%s", ft_itoa(1234));
 }
 
