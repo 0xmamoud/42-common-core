@@ -6,7 +6,7 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
-#    Updated: 2023/11/15 21:47:13 by mkane            ###   ########.fr        #
+#    Updated: 2023/11/15 22:41:50 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,10 @@ SRC = ft_isalpha.c\
 	ft_itoa.c\
 	ft_strmapi.c\
 	ft_striteri.c\
+	ft_putchar_fd.c\
+	ft_putstr_fd.c\
+	ft_putendl_fd.c\
+	ft_putnbr_fd.c\
 	main.c\
 
 OBJ = $(SRC:.c=.o)

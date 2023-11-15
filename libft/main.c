@@ -6,13 +6,14 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/15 21:53:24 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/15 22:32:43 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <fcntl.h> 
 #include "libft.h"
 
 // char to_upper(unsigned int i, char c)
@@ -546,6 +547,13 @@ int main()
     // printf("Avant ft_striteri : %s\n", test_string);
     // ft_striteri(test_string, &increment_ascii);
     // printf("Après ft_striteri : %s\n", test_string);
-    
+
+    // testputchar_fd
+    // int fd = open("tripouille", O_RDWR | O_CREAT);
+	// ft_putchar_fd('a', fd);
+
+    // testputstr_fd
+    // int fd = open("tripouille.txt", O_RDWR | O_CREAT);
+	// ft_putstr_fd((char*)"42", fd);
 }
 
