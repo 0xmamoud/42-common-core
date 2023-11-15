@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/15 20:18:56 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/15 21:26:50 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include <ctype.h>
 #include <string.h>
 #include "libft.h"
+
+// char to_upper(unsigned int i, char c)
+//     {
+//     // Fonction de test simple : convertir le caractère en majuscule
+//     // si l'index est pair, sinon laisser le caractère tel quel.
+//     return (i % 2 == 0) ? ft_toupper(c) : c;
+//     }  
 
 int main()
 {
@@ -512,6 +519,21 @@ int main()
     // free(result);
 
     // testitoa
-    printf("%s", ft_itoa(1234));
+    // printf("%s", ft_itoa(1234));
+
+    // teststrmapi
+    // const char *input_string = "testString";
+    // char *result = ft_strmapi(input_string, &to_upper);
+    // if (result)
+    // {
+    //     printf("Input String: %s\n", input_string);
+    //     printf("Mapped String: %s\n", result);
+    //     free(result);
+    // }
+    // else
+    // {
+    //     printf("Allocation mémoire échouée.\n");
+    // }
+    
 }
 
