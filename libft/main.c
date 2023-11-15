@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/15 21:26:50 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/15 21:53:24 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@
 //     // Fonction de test simple : convertir le caractère en majuscule
 //     // si l'index est pair, sinon laisser le caractère tel quel.
 //     return (i % 2 == 0) ? ft_toupper(c) : c;
-//     }  
+//     } 
+
+// void increment_ascii(unsigned int i, char *c)
+// {
+//    (*c)++;
+//    i++;
+// }
 
 int main()
 {
@@ -534,6 +540,12 @@ int main()
     // {
     //     printf("Allocation mémoire échouée.\n");
     // }
+
+    // teststriteri
+    // char test_string[] = "hello";
+    // printf("Avant ft_striteri : %s\n", test_string);
+    // ft_striteri(test_string, &increment_ascii);
+    // printf("Après ft_striteri : %s\n", test_string);
     
 }
 
