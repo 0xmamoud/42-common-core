@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/14 12:48:52 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/15 16:53:22 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -467,10 +467,51 @@ int main()
     // printf("=================================\n");
 
     // teststrjoin
-    char *s1 = "my favorite animal is";
-	char *s2 = " ";
-	char *s3 = "the nyancat";
-	char *res = ft_strjoin(ft_strjoin(s1, s2), s3);
-    printf("%s", res);
+    // char *s1 = "my favorite animal is";
+	// char *s2 = " ";
+	// char *s3 = "the nyancat";
+	// char *res = ft_strjoin(ft_strjoin(s1, s2), s3);
+    // printf("%s", res);
+
+    // teststrtrim
+    // const char *test1_str = "   Hello, World!   ";
+    // const char *test1_set = "   ";
+    // char *result1 = ft_strtrim(test1_str, test1_set);
+    // printf("Original: \"%s\"\n", test1_str);
+    // printf("Trimmed: \"%s\"\n", result1);
+    // free(result1);
+
+    // // Test case 2: Test with a different set of characters to trim
+    // const char *test2_str = "---Trim This String---";
+    // const char *test2_set = "---";
+    // char *result2 = ft_strtrim(test2_str, test2_set);
+    // printf("Original: \"%s\"\n", test2_str);
+    // printf("Trimmed: \"%s\"\n", result2);
+    // free(result2);
+
+    // // Test case 3: Test with no characters to trim
+    // const char *test3_str = "hello";
+    // const char *test3_set = "";
+    // char *result3 = ft_strtrim(test3_str, test3_set);
+    // printf("Original: \"%s\"\n", test3_str);
+    // printf("Trimmed: \"%s\"\n", result3);
+    // free(result3);
+
+    // testsplit
+    char const *test_str = "  tripouille  42 ";
+    char **result = ft_split(test_str, ' ');
+    if (!result)
+    {
+        printf("Memory allocation error\n");
+        return 1;
+    }
+    // Print the result
+    for (size_t i = 0; result[i] != NULL; i++)
+    {
+        printf("Word %zu:%s\n", i + 1, result[i]);
+        // free(result[i]); // Don't forget to free each string
+    }
+    free(result); // Don't forget to free the array itself
+
 }
 

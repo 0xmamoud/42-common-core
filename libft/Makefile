@@ -6,7 +6,7 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
-#    Updated: 2023/11/14 12:45:07 by mkane            ###   ########.fr        #
+#    Updated: 2023/11/14 22:35:02 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,8 @@ SRC = ft_isalpha.c\
 	ft_strdup.c\
 	ft_substr.c\
 	ft_strjoin.c\
+	ft_strtrim.c\
+	ft_split.c\
 	main.c\
 
 OBJ = $(SRC:.c=.o)
