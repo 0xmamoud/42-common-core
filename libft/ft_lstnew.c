@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 22:35:49 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/16 23:06:06 by mkane            ###   ########.fr       */
+/*   Created: 2023/11/16 20:40:29 by mkane             #+#    #+#             */
+/*   Updated: 2023/11/16 21:27:59 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	t_list	*new;
+
+	new = malloc (sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new -> content = content;
+	new -> next = NULL;
+	return (new);
 }

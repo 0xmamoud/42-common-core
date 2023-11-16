@@ -6,7 +6,7 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
-#    Updated: 2023/11/15 22:41:50 by mkane            ###   ########.fr        #
+#    Updated: 2023/11/16 23:45:07 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,18 @@ SRC = ft_isalpha.c\
 	ft_putnbr_fd.c\
 	main.c\
 
+BONUS = ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+
 OBJ = $(SRC:.c=.o)
+
+BONUS_OBJ = $(BONUS:.c=.o)
 
 CC = cc
 
@@ -72,13 +83,18 @@ $(EXEC): $(OBJ)
 	$(CC) $(CFLAGS) -include$(HEADERS) -o $@ -c $<
 
 clean:
-	-rm -f $(OBJ)
+	-rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-	-rm -f $(NAME) ${EXEC}
+	-rm -f $(NAME) ${EXEC} 
 
 re: fclean all
 
+bonus: $(OBJ) $(BONUS_OBJ)
+	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+
+exebonus: $(OBJ) $(BONUS_OBJ)
+	$(CC) $(CFLAGS) -include$(HEADERS) -o $(EXEC) $(OBJ)  $(BONUS_OBJ)
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
 	gcc -nostartfiles -shared -o libft.so $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:26:44 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/15 22:32:43 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/16 22:42:15 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -555,5 +555,103 @@ int main()
     // testputstr_fd
     // int fd = open("tripouille.txt", O_RDWR | O_CREAT);
 	// ft_putstr_fd((char*)"42", fd);
+
+    // testlstnew
+    // char *str = "Hello, World!";
+    // t_list *new_node = ft_lstnew(str);
+    // if (new_node != NULL)
+    // {
+    //     printf("Content: %s\n", (char *)new_node->content);
+    //     printf("Next: %p\n", (void *)new_node->next);
+    //     free(new_node);
+    // }
+    // else
+    // {
+    //     fprintf(stderr, "Erreur lors de la création du nouveau nœud.\n");
+    // }
+
+    // testlstadd_front
+    // t_list *node1 = ft_lstnew("Node 1");
+    // t_list *node2 = ft_lstnew("Node 2");
+    // t_list *node3 = ft_lstnew("Node 3");
+    // t_list *my_list = NULL;
+    // ft_lstadd_front(&my_list, node3);
+    // ft_lstadd_front(&my_list, node2);
+    // ft_lstadd_front(&my_list, node1);
+    // t_list *current = my_list;
+    // while (current != NULL)
+    // {
+    //     printf("%s -> ", (char *)current->content);
+    //     current = current->next;
+    // }
+    // printf("NULL\n");
+    // while (my_list != NULL)
+    // {
+    //     t_list *temp = my_list;
+    //     my_list = my_list->next;
+    //     free(temp);
+    // }
+
+    // testlstsize
+    // t_list *node1 = ft_lstnew("Node 1");
+    // t_list *node2 = ft_lstnew("Node 2");
+    // t_list *node3 = ft_lstnew("Node 3");
+    // t_list *my_list = node1;
+    // node1->next = node2;
+    // node2->next = node3;
+    // node3->next = NULL;
+    // printf("Taille de la liste : %d\n", ft_lstsize(my_list));
+    // while (my_list != NULL)
+    // {
+    //     t_list *temp = my_list;
+    //     my_list = my_list->next;
+    //     free(temp);
+    // }
+
+    // testlstlast
+    // t_list *node1 = ft_lstnew("Node 1");
+    // t_list *node2 = ft_lstnew("Node 2");
+    // t_list *node3 = ft_lstnew("Node 3");
+    // t_list *my_list = node1;
+    // node1->next = node2;
+    // node2->next = node3;
+    // node3->next = NULL;
+    // t_list *last_node = ft_lstlast(my_list);
+    // if (last_node != NULL)
+    // {
+    //     printf("Contenu du dernier nœud : %s\n", (char *)last_node->content);
+    // }
+    // else
+    // {
+    //     printf("La liste est vide.\n");
+    // }
+    // while (my_list != NULL)
+    // {
+    //     t_list *temp = my_list;
+    //     my_list = my_list->next;
+    //     free(temp);
+    // }
+
+    // testlst_add_back
+    // t_list *node1 = ft_lstnew("Node 1");
+    // t_list *node2 = ft_lstnew("Node 2");
+    // t_list *node3 = ft_lstnew("Node 3");
+    // t_list *my_list = NULL;
+    // ft_lstadd_back(&my_list, node1);
+    // ft_lstadd_back(&my_list, node2);
+    // ft_lstadd_back(&my_list, node3);
+    // t_list *current = my_list;
+    // while (current != NULL)
+    // {
+    //     printf("%s -> ", (char *)current->content);
+    //     current = current->next;
+    // }
+    // printf("NULL\n");
+    // while (my_list != NULL)
+    // {
+    //     t_list *temp = my_list;
+    //     my_list = my_list->next;
+    //     free(temp);
+    // }
 }
 

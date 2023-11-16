@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 22:35:49 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/16 23:06:06 by mkane            ###   ########.fr       */
+/*   Created: 2023/11/16 21:28:28 by mkane             #+#    #+#             */
+/*   Updated: 2023/11/16 22:53:22 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	int		count;
+
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst -> next;
+	}
+	return (count);
 }
