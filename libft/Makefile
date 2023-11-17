@@ -6,11 +6,9 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
-#    Updated: 2023/11/16 23:45:07 by mkane            ###   ########.fr        #
+#    Updated: 2023/11/17 18:15:24 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-EXEC = a.out
 
 NAME = libft.a
 
@@ -48,7 +46,6 @@ SRC = ft_isalpha.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
-	main.c\
 
 BONUS = ft_lstnew.c\
 		ft_lstadd_front.c\
@@ -58,6 +55,7 @@ BONUS = ft_lstnew.c\
 		ft_lstdelone.c\
 		ft_lstclear.c\
 		ft_lstiter.c\
+		ft_lstmap.c\
 
 OBJ = $(SRC:.c=.o)
 
@@ -74,11 +72,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-exe: ${EXEC}
-
-$(EXEC): $(OBJ)
-	$(CC) $(CFLAGS) -include$(HEADERS) -o $(EXEC) $(OBJ)
-
 %.o : %.c
 	$(CC) $(CFLAGS) -include$(HEADERS) -o $@ -c $<
 
@@ -93,8 +86,6 @@ re: fclean all
 bonus: $(OBJ) $(BONUS_OBJ)
 	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 
-exebonus: $(OBJ) $(BONUS_OBJ)
-	$(CC) $(CFLAGS) -include$(HEADERS) -o $(EXEC) $(OBJ)  $(BONUS_OBJ)
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
 	gcc -nostartfiles -shared -o libft.so $(OBJ)
