@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 23:00:00 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/19 01:16:59 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/21 15:19:45 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int	ft_ptr_hex(unsigned long long nbr, char *base)
 
 	strlen = 0;
 	baselen = ft_strlen(base);
-	if (nbr >= 0 && nbr < baselen)
+	if (nbr < baselen)
 		strlen += ft_putchar(base[nbr]);
 	else
 	{
-		ft_ptr_hex((nbr / baselen), base);
-		ft_ptr_hex((nbr % baselen), base);
+		strlen += ft_ptr_hex((nbr / baselen), base);
+		strlen += ft_ptr_hex((nbr % baselen), base);
 	}
 	return (strlen);
 }
