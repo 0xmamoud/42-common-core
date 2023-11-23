@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:22:39 by kane              #+#    #+#             */
-/*   Updated: 2023/11/23 14:12:23 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/23 22:39:08 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-int	ft_findline(t_list *buffer)
-{
-	int		count;
-	t_list	*last;
-
-	if (!buffer)
-		return (0);
-	last = ft_lstlast(buffer);
-	count = 0;
-	while (last ->content[count])
-	{
-		if (last ->content[count] == '\n')
-			return (1);
-		count++;
-	}
-	return (0);
-}
 
 size_t	ft_strlen(const char *s)
 {
@@ -40,38 +22,55 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-t_list	*ft_lstnew(char *src, size_t len)
+int	ft_find_newline(t_list *list)
 {
-	int		count;
-	t_list	*new;
+	int	i;
 
-	new = malloc (sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new -> content = malloc(sizeof(char) * (len + 1));
-	if (!new -> content)
-		return (NULL);
-	new -> next = NULL;
-	count = 0;
-	while (src[count] && src[count] != '\n')
+	i = 0;
+	if (!list)
+		return (0);
+	while (list -> content[i])
 	{
-		new -> content[count] = src[count];
-		count++;
+		if (list -> content[i] == '\n')
+			return (1);
+		i++;
 	}
-	new -> content[count] = '\0';
-	return (new);
+	return (0);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_linesize(t_list *list)
 {
-	t_list	*last;
+	int	i;
+	int	j;
 
-	if (!*lst)
-		*lst = new;
-	else
+	i = 0;
+	while (list)
 	{
-		last = ft_lstlast(*lst);
-		last -> next = new;
+		j = 0;
+		while (list->content[j])
+		{
+			if (list->content[j] == '\n')
+				break ;
+			j++;
+			i++;
+		}
+		list = list->next;
+	}
+	return (i + 1);
+}
+
+void	ft_free_list(t_list **list)
+{
+	t_list	*tmp;
+
+	if (!(*list))
+		return ;
+	while (*list)
+	{
+		tmp = *list;
+		*list = (*list)-> next;
+		free(tmp -> content);
+		free(tmp);
 	}
 }
 

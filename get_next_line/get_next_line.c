@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:07:40 by kane              #+#    #+#             */
-/*   Updated: 2023/11/23 14:11:38 by mkane            ###   ########.fr       */
+/*   Updated: 2023/11/23 22:45:23 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,52 +16,141 @@
 
 char	*get_next_line(int fd)
 {
-	static t_list	*buffer;
-	size_t			linelen;
-	int				count;
+	static t_list	*list;
+	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ft_read_fd(fd, &buffer);
-	if (!buffer)
+	line = NULL;
+	ft_read_fd(fd, &list);
+	if (!list)
 		return (NULL);
-	while (buffer && buffer -> next)
-		buffer = buffer -> next;
-	count = 0;
-	return (buffer -> content);
-}
-
-void	ft_read_fd(int fd, t_list **buffer)
-{
-	int		bytes;
-	char	*temp;
-	t_list	*new;
-
-	bytes = 1;
-	while (bytes != 0 && !ft_findline(*buffer))
+	line = malloc(sizeof(char) * (ft_linesize(list) + 1));
+	if (!line)
+		return (NULL);
+	line = ft_getline(list);
+	ft_clean_list(&list);
+	if (!line)
 	{
-		temp = (char *) malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (!temp)
-			return ;
-		bytes = (int)read(fd, temp, BUFFER_SIZE);
-		if (bytes == -1 || (bytes == 0 && !*buffer))
-			break ;
-		temp[bytes] = '\0';
-		new = malloc (sizeof(t_list));
-		if (!new)
-			return ;
-		new = ft_lstnew(temp, ft_strlen(temp));
-		ft_lstadd_back(buffer, new);
-		bytes = 0;
+		free(line);
+		return (NULL);
 	}
-	free(temp);
+	return (line);
 }
-int main()
+
+void	ft_read_fd(int fd, t_list **list)
 {
-	int fd = open("./test.txt", O_RDONLY);
-	
-	char *test0 = get_next_line(fd);
-	printf("%s\n", test0);
-	char *test1 = get_next_line(fd);
-	printf("%s\n", test1);
+	char	*buf;
+	int		read_bytes;
+
+	read_bytes = 1;
+	while (read_bytes != 0 && !ft_find_newline(*list))
+	{
+		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!buf)
+			return ;
+		read_bytes = read(fd, buf, BUFFER_SIZE);
+		if (read_bytes == -1 || (!buf && read_bytes == 0))
+		{
+			free(buf);
+			return ;
+		}
+		buf[read_bytes] = '\0';
+		ft_lstadd(list, buf, read_bytes);
+	}
 }
+
+void	ft_lstadd(t_list **list, char *buf, int read_bytes)
+{
+	t_list	*new;
+	t_list	*last;
+	int		i;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return ;
+	new->content = (char *)malloc(sizeof(char) * (read_bytes + 1));
+	new->next = NULL;
+	if (!new->content)
+		return ;
+	i = 0;
+	while (i < read_bytes && buf[i])
+	{
+		new->content[i] = buf[i];
+		i++;
+	}
+	new->content[i] = '\0';
+	if (!(*list))
+		*list = new;
+	else
+	{
+		last = ft_lstlast(*list);
+		last->next = new;
+	}
+}
+
+char	*ft_getline(t_list *list)
+{
+	int		i;
+	int		j;
+	char	*line;
+
+	line = malloc(sizeof(char) * (ft_linesize(list) + 1));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (list)
+	{
+		j = 0;
+		while (list->content[j])
+		{
+			if (list->content[j] == '\n')
+			{
+				line[i++] = list->content[j];
+				break ;
+			}
+			line[i++] = list->content[j++];
+		}
+		list = list->next;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+void	ft_clean_list(t_list **list)
+{
+	t_list	*tmp;
+	t_list	*last;
+	int		i;
+	int		j;
+
+	tmp = malloc(sizeof(t_list));
+	if (!tmp || !(*list))
+		return ;
+	last = ft_lstlast(*list);
+	tmp ->next = NULL;
+	i = 0;
+	while (last -> content[i] && last -> content[i] != '\n')
+		i++;
+	if (last -> content[i] == '\n')
+		i++;
+	tmp -> content = malloc(sizeof(char)
+			* (ft_strlen(last -> content) - i + 1));
+	if (!tmp -> content)
+		return ;
+	j = 0;
+	while (last -> content[i])
+		tmp -> content[j++] = last -> content[i++];
+	tmp -> content[j] = '\0';
+	ft_free_list(list);
+	*list = tmp;
+}
+
+// int main()
+// {
+// 	int fd = open("./test.txt", O_RDONLY);
+// 	 char *test0 = get_next_line(fd);
+// 	 printf("%s", test0);
+// 	 char *test1 = get_next_line(fd);
+// 	 printf("%s", test1);
+// }
