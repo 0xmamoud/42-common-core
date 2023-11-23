@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:22:39 by kane              #+#    #+#             */
-/*   Updated: 2023/11/22 23:42:11 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/23 14:12:23 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,26 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_lstnew(char *src, size_t len, t_list *new)
+t_list	*ft_lstnew(char *src, size_t len)
 {
 	int		count;
+	t_list	*new;
 
 	new = malloc (sizeof(t_list));
 	if (!new)
-		return ;
+		return (NULL);
 	new -> content = malloc(sizeof(char) * (len + 1));
 	if (!new -> content)
-		return ;
+		return (NULL);
 	new -> next = NULL;
 	count = 0;
-	while (*src && src[count] != '\n')
+	while (src[count] && src[count] != '\n')
 	{
 		new -> content[count] = src[count];
 		count++;
 	}
 	new -> content[count] = '\0';
+	return (new);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)

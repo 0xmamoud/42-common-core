@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:07:40 by kane              #+#    #+#             */
-/*   Updated: 2023/11/23 00:23:03 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/23 14:11:38 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char	*get_next_line(int fd)
 	static t_list	*buffer;
 	size_t			linelen;
 	int				count;
-	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -28,20 +27,8 @@ char	*get_next_line(int fd)
 		return (NULL);
 	while (buffer && buffer -> next)
 		buffer = buffer -> next;
-	printf("test");
-	line = NULL;
-	linelen = ft_strlen(buffer -> content);
-	line = (char *) malloc(sizeof(char) * (linelen + 1));
-	if (!line)
-		return (NULL);
 	count = 0;
-	while (buffer -> content[count])
-	{
-		line[count] == buffer -> content[count];
-		count++;
-	}
-	line[count] = '\0';
-	return (line);
+	return (buffer -> content);
 }
 
 void	ft_read_fd(int fd, t_list **buffer)
@@ -58,18 +45,23 @@ void	ft_read_fd(int fd, t_list **buffer)
 			return ;
 		bytes = (int)read(fd, temp, BUFFER_SIZE);
 		if (bytes == -1 || (bytes == 0 && !*buffer))
-		{
-			free(temp);
-			return ;
-		}
+			break ;
 		temp[bytes] = '\0';
+		new = malloc (sizeof(t_list));
+		if (!new)
+			return ;
+		new = ft_lstnew(temp, ft_strlen(temp));
+		ft_lstadd_back(buffer, new);
+		bytes = 0;
 	}
-	ft_lstnew(temp, ft_strlen(temp), new);
-	ft_lstadd_back(buffer, new);
 	free(temp);
 }
 int main()
 {
 	int fd = open("./test.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
+	
+	char *test0 = get_next_line(fd);
+	printf("%s\n", test0);
+	char *test1 = get_next_line(fd);
+	printf("%s\n", test1);
 }
