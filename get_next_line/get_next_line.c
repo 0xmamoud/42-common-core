@@ -6,11 +6,10 @@
 /*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:07:40 by kane              #+#    #+#             */
-/*   Updated: 2023/11/23 22:45:23 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/27 00:31:17 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "get_next_line_utils.c"
 #include "get_next_line.h"
 #include <stdio.h>
 
@@ -19,20 +18,19 @@ char	*get_next_line(int fd)
 	static t_list	*list;
 	char			*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE == 0)
 		return (NULL);
 	line = NULL;
 	ft_read_fd(fd, &list);
 	if (!list)
 		return (NULL);
-	line = malloc(sizeof(char) * (ft_linesize(list) + 1));
-	if (!line)
-		return (NULL);
 	line = ft_getline(list);
 	ft_clean_list(&list);
-	if (!line)
+	if (!*line)
 	{
+		ft_free_list(list);
 		free(line);
+		list = NULL;
 		return (NULL);
 	}
 	return (line);
@@ -53,10 +51,13 @@ void	ft_read_fd(int fd, t_list **list)
 		if (read_bytes == -1 || (!buf && read_bytes == 0))
 		{
 			free(buf);
+			ft_free_list(*list);
+			*list = NULL;
 			return ;
 		}
 		buf[read_bytes] = '\0';
 		ft_lstadd(list, buf, read_bytes);
+		free(buf);
 	}
 }
 
@@ -69,8 +70,8 @@ void	ft_lstadd(t_list **list, char *buf, int read_bytes)
 	new = malloc(sizeof(t_list));
 	if (!new)
 		return ;
-	new->content = (char *)malloc(sizeof(char) * (read_bytes + 1));
 	new->next = NULL;
+	new->content = (char *)malloc(sizeof(char) * (read_bytes + 1));
 	if (!new->content)
 		return ;
 	i = 0;
@@ -81,12 +82,12 @@ void	ft_lstadd(t_list **list, char *buf, int read_bytes)
 	}
 	new->content[i] = '\0';
 	if (!(*list))
-		*list = new;
-	else
 	{
-		last = ft_lstlast(*list);
-		last->next = new;
+		*list = new;
+		return ;
 	}
+	last = ft_lstlast(*list);
+	last->next = new;
 }
 
 char	*ft_getline(t_list *list)
@@ -107,7 +108,8 @@ char	*ft_getline(t_list *list)
 			if (list->content[j] == '\n')
 			{
 				line[i++] = list->content[j];
-				break ;
+				line[i] = '\0';
+				return (line);
 			}
 			line[i++] = list->content[j++];
 		}
@@ -142,15 +144,21 @@ void	ft_clean_list(t_list **list)
 	while (last -> content[i])
 		tmp -> content[j++] = last -> content[i++];
 	tmp -> content[j] = '\0';
-	ft_free_list(list);
+	ft_free_list(*list);
 	*list = tmp;
 }
 
 // int main()
 // {
 // 	int fd = open("./test.txt", O_RDONLY);
-// 	 char *test0 = get_next_line(fd);
-// 	 printf("%s", test0);
-// 	 char *test1 = get_next_line(fd);
-// 	 printf("%s", test1);
+// 	int i = 0;
+// 	while (i < 300)
+// 	{
+// 		char *line = get_next_line(fd);
+// 		if (!line)
+// 			return (0) ;
+// 		printf("%s", line);
+// 		free(line);
+// 		i++;
+// 	}
 // }

@@ -6,7 +6,7 @@
 /*   By: kane <kane@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:22:39 by kane              #+#    #+#             */
-/*   Updated: 2023/11/23 22:39:08 by kane             ###   ########.fr       */
+/*   Updated: 2023/11/26 23:52:51 by kane             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@ size_t	ft_strlen(const char *s)
 
 int	ft_find_newline(t_list *list)
 {
-	int	i;
+	int		i;
+	t_list	*tmp;
 
 	i = 0;
 	if (!list)
 		return (0);
-	while (list -> content[i])
+	tmp = ft_lstlast(list);
+	while (tmp -> content[i])
 	{
-		if (list -> content[i] == '\n')
+		if (tmp -> content[i] == '\n')
 			return (1);
 		i++;
 	}
@@ -50,27 +52,29 @@ int	ft_linesize(t_list *list)
 		while (list->content[j])
 		{
 			if (list->content[j] == '\n')
-				break ;
+				return (i + 1);
 			j++;
 			i++;
 		}
 		list = list->next;
 	}
-	return (i + 1);
+	return (i);
 }
 
-void	ft_free_list(t_list **list)
+void	ft_free_list(t_list *list)
 {
 	t_list	*tmp;
+	t_list	*next;
 
-	if (!(*list))
+	if (!(list))
 		return ;
-	while (*list)
+	tmp = list;
+	while (tmp)
 	{
-		tmp = *list;
-		*list = (*list)-> next;
 		free(tmp -> content);
+		next = tmp -> next;
 		free(tmp);
+		tmp = next;
 	}
 }
 
