@@ -6,11 +6,15 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 23:50:10 by kane              #+#    #+#              #
-#    Updated: 2023/11/17 18:17:48 by mkane            ###   ########.fr        #
+#    Updated: 2023/12/20 23:25:19 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+PRINTF_DIR = ./ft_printf/
+PRINTF_SRC_DIR = $(PRINTF_DIR)src/
+PRINTF_UTILS_DIR = $(PRINTF_DIR)utils/
 
 SRC = ft_isalpha.c\
 	ft_isdigit.c\
@@ -57,29 +61,45 @@ BONUS = ft_lstnew.c\
 		ft_lstiter.c\
 		ft_lstmap.c\
 
+GNL = get_next_line.c\
+	  get_next_line_utils.c\
+
+PRINTF = $(PRINTF_SRC_DIR)ft_printf.c\
+		 $(PRINTF_SRC_DIR)ft_parser.c\
+		 $(PRINTF_SRC_DIR)ft_putptr.c\
+		 $(PRINTF_SRC_DIR)ft_put_uint.c\
+		 $(PRINTF_UTILS_DIR)ft_putchar.c\
+		 $(PRINTF_UTILS_DIR)ft_putstr.c\
+		 $(PRINTF_UTILS_DIR)ft_putnbr_base.c\
+
 OBJ = $(SRC:.c=.o)
 
 BONUS_OBJ = $(BONUS:.c=.o)
+
+GNL_OBJ = $(GNL:.c=.o)
+
+PRINTF_OBJ = $(PRINTF:.c=.o)
 
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADERS = libft.h
+HEADERS = libft.h\
+		 
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(BONUS_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
+	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -include$(HEADERS) -o $@ -c $<
 
 clean:
-	-rm -f $(OBJ) $(BONUS_OBJ)
+	-rm -f $(OBJ) $(BONUS_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
 
 fclean: clean
-	-rm -f $(NAME) ${EXEC} 
+	-rm -f $(NAME)
 
 re: fclean all
 

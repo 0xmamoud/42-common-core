@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:12:28 by mkane             #+#    #+#             */
-/*   Updated: 2023/11/17 16:53:59 by mkane            ###   ########.fr       */
+/*   Updated: 2023/12/20 23:20:42 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
