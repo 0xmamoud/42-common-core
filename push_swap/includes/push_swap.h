@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 02:23:14 by mkane             #+#    #+#             */
-/*   Updated: 2023/12/23 02:35:47 by mkane            ###   ########.fr       */
+/*   Updated: 2023/12/24 20:18:18 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,16 @@ t_stack		*ft_fill_stack_a(char *argv);
 void		ft_stack_add_back(t_stack **stack, t_stack *new);
 void		ft_free_tab(char **tab);
 void		ft_free_stack(t_stack *stack);
+void		ft_stack_add_front(t_stack **stack, t_stack *new);
+void		ft_update_index(t_stack **stack);
+void		ft_lst_swap(t_stack **stack);
+void		ft_lst_swap_both(t_stack **stack_a, t_stack **stack_b);
+void		ft_lst_push(t_stack **src, t_stack **dst);
 int			ft_check_digit(char *str);
 int			parsing(char *argv);
 int			ft_check_atoi(char **str);
 long long	ft_long_atoi(const char *nptr);
+char		*split_argv(int argc, char **argv);
+
 
 #endif

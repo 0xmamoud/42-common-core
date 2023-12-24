@@ -6,7 +6,7 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/18 18:09:23 by mkane             #+#    #+#              #
-#    Updated: 2023/12/23 01:43:31 by mkane            ###   ########.fr        #
+#    Updated: 2023/12/24 20:06:37 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,18 @@ PUSH_SWAP_DIR = ./src/push_swap/
 UTILS_DIR = ./utils/
 
 SRC = main.c\
+	$(PUSH_SWAP_DIR)lst_swap.c\
+	$(PUSH_SWAP_DIR)lst_push.c\
 	$(PARSING_DIR)parsing.c\
+	$(PARSING_DIR)split_argv.c\
 	$(UTILS_DIR)ft_long_atoi.c\
 	$(UTILS_DIR)ft_create_stack.c\
 	$(UTILS_DIR)ft_stack_add_back.c\
 	$(UTILS_DIR)ft_stack_last.c\
 	$(UTILS_DIR)ft_fill_stack_a.c\
 	$(UTILS_DIR)ft_free_stack.c\
+	$(UTILS_DIR)ft_stack_add_front.c\
+	$(UTILS_DIR)ft_update_index.c\
 
 OBJ = $(SRC:.c=.o)
 
