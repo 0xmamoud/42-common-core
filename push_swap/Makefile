@@ -6,7 +6,7 @@
 #    By: mkane <mkane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/18 18:09:23 by mkane             #+#    #+#              #
-#    Updated: 2023/12/24 20:06:37 by mkane            ###   ########.fr        #
+#    Updated: 2023/12/24 21:36:06 by mkane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ UTILS_DIR = ./utils/
 SRC = main.c\
 	$(PUSH_SWAP_DIR)lst_swap.c\
 	$(PUSH_SWAP_DIR)lst_push.c\
+	$(PUSH_SWAP_DIR)lst_rotate.c\
+	$(PUSH_SWAP_DIR)lst_reverse_rotate.c\
 	$(PARSING_DIR)parsing.c\
-	$(PARSING_DIR)split_argv.c\
+	$(PARSING_DIR)join_argv.c\
 	$(UTILS_DIR)ft_long_atoi.c\
 	$(UTILS_DIR)ft_create_stack.c\
 	$(UTILS_DIR)ft_stack_add_back.c\

@@ -6,7 +6,7 @@
 /*   By: mkane <mkane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 02:27:47 by mkane             #+#    #+#             */
-/*   Updated: 2023/12/24 21:10:23 by mkane            ###   ########.fr       */
+/*   Updated: 2023/12/24 21:51:36 by mkane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	env.stack_b = NULL;
 	if (argc < 2)
 		return (0);
-	tab = split_argv(argc, argv);
+	tab = join_argv(argc, argv);
 	if (!parsing(tab))
 	{
 		ft_printf("Error\n");
@@ -29,10 +29,11 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	env.stack_a = ft_fill_stack_a(tab);
-	ft_printf("test\n");
 	ft_lst_push(&env.stack_a, &env.stack_b);
 	ft_lst_push(&env.stack_a, &env.stack_b);
-	ft_lst_swap_both(&env.stack_a, &env.stack_b);
+	ft_lst_push(&env.stack_a, &env.stack_b);
+	// ft_lst_swap_both(&env.stack_a, &env.stack_b);
+	ft_lst_reverse_rotate_both(&env.stack_a, &env.stack_b);
 	t_stack *current = env.stack_a;
 	t_stack *current2 = env.stack_b;
 	while (current)
